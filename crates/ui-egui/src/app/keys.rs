@@ -1,5 +1,7 @@
 use super::*;
 use crate::page_keys::PageKeys;
+use comments::CommentTool;
+use fill_sign::FillTool;
 
 impl PdfCraftApp {
     pub(super) fn shortcuts(&mut self, ctx: &egui::Context) {
@@ -133,6 +135,14 @@ impl PdfCraftApp {
         }
         if keys.pressed(ctx, Key::H) {
             self.quick_tool = QuickTool::Hand;
+            self.space_hand = None;
+        }
+		if ctx.input(|input| input.key_pressed(Key::T)) {
+            self.quick_tool = QuickTool::Fill(FillTool::Text);
+            self.space_hand = None;
+        }
+		if ctx.input(|input| input.key_pressed(Key::M)) {
+            self.quick_tool = QuickTool::Comment(CommentTool::Note);
             self.space_hand = None;
         }
         if space && self.space_hand.is_none() && self.quick_tool != QuickTool::Hand {
