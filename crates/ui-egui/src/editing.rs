@@ -253,7 +253,7 @@ impl PdfCraftApp {
                     let page_images = doc.page_images(*page);
                     re_resolve_image_selection(view, *page, &target, ambiguous_before, &page_images);
                 }
-                if std::mem::take(&mut view.comments.tool_done) && !self.comment_prefs.pinned {
+                if std::mem::take(&mut view.comments.tool_done) && !self.comment_prefs.pinned && self.reset_tool_after_use{
                     self.quick_tool = crate::QuickTool::Select;
                 }
                 // Text saved as typed but drawn with `?` (its font can't draw it), or pages whose

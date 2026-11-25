@@ -190,6 +190,7 @@ impl PdfCraftApp {
             window_controls: None,
             system_title_bar: false,
             app_frame_shown: None,
+			reset_tool_after_use: false,
             password_prompt: None,
             document_copy: None,
             unlock_prompt: None,

@@ -885,6 +885,9 @@ fn card_fill_and_sign(ui: &mut egui::Ui, app: &mut PdfCraftApp, t: &Tokens, ctx:
     ctx.label_secondary(ui, tl!("Text, marks and signatures become part of the page. Other comments stay editable."), t);
     ui.add_space(8.0);
     date_format(ui, app, t, ctx);
+	// Whether the active tool stays the same after its use or falls back to the selection tool.
+	ctx.checkbox(ui, &mut app.reset_tool_after_use, tl!("Reset tool after use"), t)
+		.on_hover_text(tl!("Makes the active tool falls back to the selection tool after any tool use."));
 }
 
 /// Content for Card 6: JavaScript

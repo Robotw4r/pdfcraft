@@ -547,6 +547,8 @@ pub struct PdfCraftApp {
     pub system_title_bar: bool,
     /// Whether the window currently has the app's header bar (`None` until the first frame).
     app_frame_shown: Option<bool>,
+	/// Whether the current tool fallsback to selection after use or not
+	pub reset_tool_after_use: bool,
     pub password_prompt: Option<PasswordPrompt>,
     /// Copy of a whole document's text (#2639) whose pages are being read off the UI thread.
     document_copy: Option<DocumentCopy>,
